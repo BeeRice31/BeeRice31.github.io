@@ -287,44 +287,47 @@
     }
 
     /* CREDENTIALS */
-    .badges-row {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-    }
-    #credentials .creds-list {
-      display: flex;
-      flex-direction: column;
+    .creds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
       border: 1px solid var(--border);
     }
-    .cred-row {
-      display: grid;
-      grid-template-columns: 3fr 2fr 1fr auto;
-      align-items: center;
-      gap: 2rem;
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid var(--border);
+    .cred-card {
       background: var(--cream);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
       transition: background 0.2s;
     }
-    .cred-row:last-child { border-bottom: none; }
-    .cred-row:hover { background: white; }
-    .cred-name { font-weight: 500; font-size: 0.95rem; color: var(--ink); }
-    .cred-org { font-size: 0.85rem; color: var(--ink-muted); }
-    .cred-year { font-size: 0.8rem; color: var(--ink-muted); font-family: var(--serif); font-style: italic; }
-    .cred-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      .cred-card:hover { background: white; }
+      .cred-card-issuer {
+      display: inline-block;
       font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      background: var(--accent-pale);
       color: var(--accent);
-      padding: 5px 12px;
-      border-radius: 2px;
+      border: 1px solid var(--accent);
+      padding: 3px 10px;
+      border-radius: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .cred-card-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .cred-card-year {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-family: var(--serif);
+      font-style: italic;
+      margin-top: 0.75rem;
     }
 
     /* CONTACT */
@@ -401,8 +404,6 @@
       .hero-right { align-items: flex-start; }
       section { padding: 3.5rem 1.5rem; }
       #about .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .cred-row { grid-template-columns: 1fr 1fr; }
-      .cred-year, .cred-badge { display: none; }
       #contact .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
@@ -547,38 +548,31 @@
       <span class="section-num">03.</span>
       <h2 class="section-title">Credentials</h2>
     </div>
-    <div class="badges-row">
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e4a4d02f-734e-4529-9a8c-0c1974d71e24" data-share-badge-host="https://www.credly.com"></div>
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="d24015af-3ac2-4d23-8f28-44a06d4e3665" data-share-badge-host="https://www.credly.com"></div>
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f2968421-508a-46eb-8096-9473ac4db5f5" data-share-badge-host="https://www.credly.com"></div>
+    <div class="creds-grid">
+
+    <div class="cred-card">
+        <div class="cred-card-issuer">Certiport</div>
+        <h3 class="cred-card-title">IT Specialist — Java</h3>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="e4a4d02f-734e-4529-9a8c-0c1974d71e24" data-share-badge-host="https://www.credly.com"></div>
+        <div class="cred-card-year">2026</div>
+      </div>
+
+      <div class="cred-card">
+        <div class="cred-card-issuer">Certiport</div>
+        <h3 class="cred-card-title">IT Specialist — Computational Thinking</h3>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="d24015af-3ac2-4d23-8f28-44a06d4e3665" data-share-badge-host="https://www.credly.com"></div>
+        <div class="cred-card-year">2026</div>
+      </div>
+
+      <div class="cred-card">
+        <div class="cred-card-issuer">Certiport</div>
+        <h3 class="cred-card-title">IT Specialist — Python</h3>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="f2968421-508a-46eb-8096-9473ac4db5f5" data-share-badge-host="https://www.credly.com"></div>
+        <div class="cred-card-year">2026</div>
+      </div>
+
     </div>
     <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-
-
-    <div class="creds-list">
-
-    <div class="cred-row">
-        <div class="cred-name">IT Specialist — Java</div>
-        <div class="cred-org">Certiport</div>
-        <div class="cred-year">2026</div>
-        <a class="cred-badge" href="https://www.credly.com/badges/e4a4d02f-734e-4529-9a8c-0c1974d71e24" target="_blank">✓ Verified</a>
-      </div>
-
-      <div class="cred-row">
-        <div class="cred-name">IT Specialist — Computational Thinking</div>
-        <div class="cred-org">Certiport</div>
-        <div class="cred-year">2026</div>
-        <a class="cred-badge" href="https://www.credly.com/badges/d24015af-3ac2-4d23-8f28-44a06d4e3665" target="_blank">✓ Verified</a>
-      </div>
-
-      <div class="cred-row">
-        <div class="cred-name">IT Specialist — Python</div>
-        <div class="cred-org">Certiport</div>
-        <div class="cred-year">2026</div>
-        <a class="cred-badge" href="https://www.credly.com/badges/f2968421-508a-46eb-8096-9473ac4db5f5" target="_blank">✓ Verified</a>
-      </div>
-
-    </div>
   </section>
 
   <!-- CONTACT -->
